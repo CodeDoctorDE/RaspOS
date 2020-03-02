@@ -1,9 +1,6 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Button from "@material-ui/core/Button";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import { purple, green, red } from "@material-ui/core/colors";
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,7 +9,7 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
-import Header from "./pages/Header";
+import MainHeader from "./MainHeader";
 
 const theme = createMuiTheme({
   palette: {
@@ -33,9 +30,7 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/topics">
-            <Topics />
-          </Route>
+          <Route path="/topics" component={Topics} />
           <Route path="/">
             <Home />
           </Route>
@@ -49,7 +44,7 @@ function App() {
 
 function Home() {
   return (
-    <Header home="home" />
+    <MainHeader home="home" />
   );
 }
 

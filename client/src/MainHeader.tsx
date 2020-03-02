@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import logo from "../logo.svg";
+import React from "react";
+import logo from "./logo.svg";
 import {
   AppBar,
   IconButton,
@@ -9,12 +8,10 @@ import {
   Button,
   createStyles,
   makeStyles,
-  Theme,
-  Link
-} from "@material-ui/core";
+  Theme} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-interface HeaderPropType {
-  home: "home" | "about";
+interface HeaderPropType extends React.Props<any> {
+  home: "home" | "about"
 }
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -29,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   })
 );
-  export default function Header(props: HeaderPropType) {
+  export default function MainHeader(props:HeaderPropType, {}) {
     const classes = useStyles();
     return (
       <AppBar position="static">
@@ -46,9 +43,9 @@ const useStyles = makeStyles((theme: Theme) =>
           <Typography variant="h6" className={classes.title}>
             RaspOS
           </Typography>
-          <Link to="/">Home</Link>
-          <Button color="inherit">Home</Button>
           <Button color="inherit">Login</Button>
-          <Button color="inherit">Login</Button>
-          <Button color="inherit">Login</Button>
-     
+        </Toolbar>
+      </AppBar>
+    );
+}
+
